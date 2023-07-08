@@ -1,50 +1,68 @@
 * {
   box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #120319;
+  background-color: #202024;
 }
 
 /* Style the header */
 .header {
   grid-area: header;
-  background-color: #102b3f;
-  padding: 30px;
+  background-color: #0d3452;
   text-align: center;
-  font-size: 45px;
+  font-size: 50px;
   color: #7dff0d;
-  height: 150px;
+  height: 160px;
+  padding: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .nav {
   grid-area: nav;
-  background-color: #120319;
-  padding: 10px;
+  background-color: #202024;
+  padding: 4px;
   text-align: center;
   font-size: 20px;
-  height: 30px
+  height: 50px;
+}
+.navitem {
+  background-color: #7dff0d;
+  float: left;
+  position: relative;
+  padding: 2px;
+  margin: 0px;
+  text-align: center;
+  font-size: 20px;
+  height: 42px;
+  width: 80px;
+  border-left: .5rem solid green;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 /* The grid container */
 .grid-container {
   display: grid;
-  margin-top: 20px;
-  margin-left: 70px;
-  margin-right: 70px;
-  grid-template-areas: 
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  grid-template-areas:
+    'nav nav nav nav nav nav' 
     'header header header header header header'
-    'nav nav nav nav nav nav'
     'left middle middle middle right right' 
     'footer footer footer footer footer footer';
-  /* grid-column-gap: 10px; - if you want gap between the columns */
+   grid-column-gap: 10px;
 } 
 
 .left,
 .middle,
 .right {
   padding: 10px;
-  height: 450px; /* Should be removed. Only for demonstration */
+  height: 500px; /* Should be removed. Only for demonstration */
 }
 
 /* Style the left column */
@@ -65,10 +83,11 @@ body {
 /* Style the footer */
 .footer {
   grid-area: footer;
-  background-color: #1d0335;
+  background-color: #0d3452;
   padding: 10px;
   text-align: center;
-  height: 50px;
+  height: 100px;
+  margin-top: 10px;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
