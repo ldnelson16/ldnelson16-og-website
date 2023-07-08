@@ -1,30 +1,84 @@
 * {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  font-size: 12px;
-  font-family: 'Helvetica', Arial, sans-serif;
-  color: #b2b2b2;
-}
-body {
-  background-color: black;
-}
-.parent {
-display: grid;
-grid-template-columns: 1fr .2fr repeat(8, 1fr) .2fr 1fr;
-grid-template-rows: 1.5fr .2fr repeat(2, 1fr) .1fr repeat(5, 1fr) .2fr 1fr;
-grid-column-gap: 0px;
-grid-row-gap: 0px;
-background-color: gray;
+  box-sizing: border-box;
 }
 
-.div1 { 
-  grid-area: 3 / 3 / 5 / 11;
-  background-color: red;
- }
-.div2 { grid-area: 6 / 8 / 11 / 11; }
-.div3 { grid-area: 6 / 3 / 11 / 5; }
-.div4 { grid-area: 6 / 5 / 11 / 8; }
-.div5 { grid-area: 2 / 2 / 12 / 12; }
-.div6 { grid-area: 1 / 1 / 2 / 13; }
-.div7 { grid-area: 3 / 1 / 11 / 2; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #120319;
+}
+
+/* Style the header */
+.header {
+  grid-area: header;
+  background-color: #102b3f;
+  padding: 30px;
+  text-align: center;
+  font-size: 45px;
+  color: #7dff0d;
+  height: 150px;
+}
+.nav {
+  grid-area: nav;
+  background-color: #120319;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  height: 30px
+}
+
+/* The grid container */
+.grid-container {
+  display: grid;
+  margin-top: 20px;
+  margin-left: 70px;
+  margin-right: 70px;
+  grid-template-areas: 
+    'header header header header header header'
+    'nav nav nav nav nav nav'
+    'left middle middle middle right right' 
+    'footer footer footer footer footer footer';
+  /* grid-column-gap: 10px; - if you want gap between the columns */
+} 
+
+.left,
+.middle,
+.right {
+  padding: 10px;
+  height: 450px; /* Should be removed. Only for demonstration */
+}
+
+/* Style the left column */
+.left {
+  grid-area: left;
+}
+
+/* Style the middle column */
+.middle {
+  grid-area: middle;
+}
+
+/* Style the right column */
+.right {
+  grid-area: right;
+}
+
+/* Style the footer */
+.footer {
+  grid-area: footer;
+  background-color: #1d0335;
+  padding: 10px;
+  text-align: center;
+  height: 50px;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .grid-container  {
+    grid-template-areas: 
+      'nav header header header header header' 
+      'nav left left left left left' 
+      'nav middle middle middle middle middle' 
+      'nav right right right right right' 
+      'nav footer footer footer footer footer';
+  }
+}
