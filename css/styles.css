@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 12px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #b2b2b2;
+}
+body {
+  background: linear-gradient(45deg, #190061, #0c0032);
+}
+
+.header {
+  width: 100%;
+  margin-bottom: 1%;
+  background-color: #3500D3;
+  font-style: italic;
+  padding: .1% 0 .1% 0;
+  text-align: left;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header h1 {
+  font-size: 3.5rem;
+}
+.header .mainlogo {
+  width: 40px;
+  display: inline-block;
+}
+.header .title {
+  width: 350px;
+  display: inline-block;
+}
