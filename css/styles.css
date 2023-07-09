@@ -4,138 +4,14 @@
   margin: 0px;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #202024;
-}
-
-/* Style the header */
-.header {
-  grid-area: header;
-  background-color: #0d3452;
-  text-align: center;
-  font-size: 50px;
+h2 {
   color: white;
-  height: 140px;
-  padding: 30px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-.nav {
-  grid-area: nav;
-  background-color: #202024;
-  padding: 4px;
-  text-align: center;
-  font-size: 20px;
-  height: 50px;
-}
-.navitem {
-  background-color: #004B82;
-  float: left;
-  position: relative;
-  padding: 2px;
-  margin: 0px;
-  text-align: center;
-  font-size: 20px;
-  min-height: 42px;
-  min-width: 80px;
-  border-left: .3rem solid #0d3452;
-  border-radius: 3px;
-  margin-right: 7px;
-}
-.navtext {
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  font-family:'Arial', Courier, monospace, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  text-align: center;
-  padding: 10px 5px 5px 5px;
-}
-.navitem:hover {
-  background-color: #0d3452;
-  border-left: .3rem solid #004b82;
-  color: #d3d5db;
-}
-
-/* The grid container */
-.grid-container {
-  display: grid;
-  margin-top: 10px;
-  margin-left: 30px;
-  margin-right: 30px;
-  grid-template-areas:
-    'nav nav nav nav nav nav nav nav' 
-    'header header header header header header header header'
-    'body body body body body body body body' 
-    'footer footer footer footer footer footer footer footer';
-   grid-column-gap: 10px;
-} 
-
-.left {
-  padding: 10px;
-  height: 500px; /* Should be removed. Only for demonstration */
-}
-
-/* Style the left column */
-.body {
-  grid-area: body;
-}
-
-/* Style the footer */
-.footer {
-  grid-area: footer;
-  background-color: #0d3452;
-  padding: 10px;
-  text-align: center;
-  height: 70px;
-  margin-top: 10px;
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 1100px) {
-  .grid-container  {
-    grid-template-areas: 
-      'nav header header header header header' 
-      'nav body body body body body'  
-      'nav footer footer footer footer footer';
-  }
-  .navitem {
-    margin: 3px 0px 3px 3px;
-  }
-  .header {
-    font-size: 25px;
-  }
-  .grid-container {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-}
-body .noscroll {
-  overflow: hidden;
-  min-width: 100%;
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header {
-  width: 100%;
-  margin-bottom: 1%;
-  background-color: #3500D3;
-  font-style: italic;
-  padding: .1% 0 .1% 0;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 16px;
   text-align: left;
-  font-family:'Helvetica', Tahoma, Geneva, Verdana, sans-serif;
 }
-.header h1 {
-  font-size: 3.5rem;
-}
-.header .mainlogo {
-  width: 40px;
-  display: inline-block;
-}
-.header .title {
-  width: 350px;
-  display: inline-block;
+h1 {
+  font-size: 75px;
+  text-align: center;
+  color: white;
 }

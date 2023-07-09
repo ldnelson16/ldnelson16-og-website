@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #202024;
@@ -60,31 +66,19 @@ body {
   grid-template-areas:
     'nav nav nav nav nav nav nav nav' 
     'header header header header header header header header'
-    'left middle middle middle middle right right right' 
+    'body body body body body body body body' 
     'footer footer footer footer footer footer footer footer';
    grid-column-gap: 10px;
 } 
 
-.left,
-.middle,
-.right {
+.body {
   padding: 10px;
   height: 500px; /* Should be removed. Only for demonstration */
 }
 
 /* Style the left column */
-.left {
-  grid-area: left;
-}
-
-/* Style the middle column */
-.middle {
-  grid-area: middle;
-}
-
-/* Style the right column */
-.right {
-  grid-area: right;
+.body {
+  grid-area: body;
 }
 
 /* Style the footer */
@@ -102,22 +96,25 @@ body {
   .grid-container  {
     grid-template-areas: 
       'nav header header header header header' 
-      'nav left left left left left' 
-      'nav middle middle middle middle middle' 
-      'nav right right right right right' 
+      'nav body body body body body'  
       'nav footer footer footer footer footer';
   }
   .navitem {
     margin: 3px 0px 3px 3px;
   }
-  .header {
+  .header h1 {
     font-size: 25px;
   }
   .grid-container {
     margin-left: 5px;
     margin-right: 5px;
   }
-  .middle, .right {
-    margin-top: 10px;
-  }
+}
+body .noscroll {
+  overflow: hidden;
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
