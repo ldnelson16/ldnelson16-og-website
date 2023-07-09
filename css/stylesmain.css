@@ -15,8 +15,8 @@ body {
   background-color: #0d3452;
   text-align: center;
   font-size: 50px;
-  color: #7dff0d;
-  height: 160px;
+  color: white;
+  height: 150px;
   padding: 30px;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -30,18 +30,25 @@ body {
   height: 50px;
 }
 .navitem {
-  background-color: #7dff0d;
+  background-color: #004B82;
   float: left;
   position: relative;
   padding: 2px;
   margin: 0px;
   text-align: center;
   font-size: 20px;
-  height: 42px;
-  width: 80px;
-  border-left: .5rem solid green;
-  border-radius: 5px;
+  min-height: 42px;
+  min-width: 80px;
+  border-left: .3rem solid #0d3452;
+  border-radius: 3px;
   margin-right: 10px;
+}
+.navtext {
+  color: white;
+  font-size: 15px;
+  font-family:'Arial', Courier, monospace, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  padding: 10px 5px 5px 5px;
 }
 
 /* The grid container */
@@ -51,10 +58,10 @@ body {
   margin-left: 30px;
   margin-right: 30px;
   grid-template-areas:
-    'nav nav nav nav nav nav' 
-    'header header header header header header'
-    'left middle middle middle right right' 
-    'footer footer footer footer footer footer';
+    'nav nav nav nav nav nav nav nav' 
+    'header header header header header header header header'
+    'left middle middle middle middle right right right' 
+    'footer footer footer footer footer footer footer footer';
    grid-column-gap: 10px;
 } 
 
@@ -91,7 +98,7 @@ body {
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
+@media (max-width: 1100px) {
   .grid-container  {
     grid-template-areas: 
       'nav header header header header header' 
@@ -99,5 +106,11 @@ body {
       'nav middle middle middle middle middle' 
       'nav right right right right right' 
       'nav footer footer footer footer footer';
+  }
+  .navitem {
+    margin: 5px;
+  }
+  .header {
+    font-size: 25px;
   }
 }
