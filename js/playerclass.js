@@ -9,10 +9,10 @@ String.prototype.format = function () {
 export class Player {
   constructor(ratingon3,rating247,ratingespn,ratingrivals,name,position,city,state,committed,team = false) {
     this.name=name;
-    this.ron3=[isNaN(ratingon3) ? ratingon3 : parseInt(ratingon3)];
-    this.r247=[isNaN(rating247) ? rating247 : parseInt(rating247)];
-    this.respn=[isNaN(ratingespn) ? ratingespn : parseInt(ratingespn)];
-    this.rrivals=[isNaN(ratingrivals) ? ratingrivals : parseFloat(ratingrivals)];
+    this.ron3=ratingon3;
+    this.r247=rating247;
+    this.respn=ratingespn;
+    this.rrivals=ratingrivals;
     this.pos=position;
     this.city=city;
     this.state=state;

@@ -1,3 +1,5 @@
+//import statements
+
 function selectedDropdownOption() {
   let dropdown = document.getElementById("dropdown")
   let selectedIndex = dropdown.selectedIndex;
@@ -12,5 +14,5 @@ function loadDropdownOptions() {
   var option = document.createElement("option");
   option.text = "Kiwi";
   dropdown.add(option);
-  console.log("this happened")
+  console.log("date added")
 }
