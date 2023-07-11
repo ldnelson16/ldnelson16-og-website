@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+  <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+  <link rel="stylesheet" type="text/css" href="css/stylesrecruiting.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unbiased CFB</title>
+  <script type="text/javascript" src="js/functions.js"></script>
+ </head>
+ <body onload="loadDropdownOptions()">
+  <div class="grid-container">
+    <div class="header">
+      <h1>Unbiased CFB Recruiting Info</h1>
+    </div>
+    <div class="nav">
+      <a href="recruiting.html"><div class="navitem"><p class="navtext">RECRUITING</p></div></a>
+      <a href="searchalgs.html"><div class="navitem"><p class="navtext">SEARCH ALGS</p></div></a>
+      <a><div class="navitem"><p class="navtext">TBD</p></div></a>
+      <a><div class="navitem"><p class="navtext">TBD</p></div></a>
+    </div>
+    
+    <div class="body" style="background-color:#0d3452;">
+      <h2>This page collects historical data of over 1000 recruits from each class and allows you to make unbiased composite ranking systems for comparison using 247 Sports, ON3, ESPN, and Rivals recruit ranking data.</h2>
+      <label for="cars">Choose a date:</label>
+      <select id = "dropdown" onchange = "selectedDropdownOption()">
+        <!--add options here-->
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </div>
+    
+    <div class="footer">
+    <p>Footer</p>
+    </div>
+  </div>
+ </body>
+</html>

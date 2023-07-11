@@ -25,23 +25,18 @@ function readFileLines(filename) {
   });
 }
 
-// Usage example:
-function readFileLine(a) {
-  a.then(lines => {
-    console.log(lines); // Array containing each line of the file
-  })
-  .catch(error => {
-    console.error(error); // Error reading the file
-  });
-}
-
-let d;
-d=readFileLines("data.txt").then(
+let d=readFileLines("data.txt").then(
   (lines) => {
     console.log(lines[0]);
     let dates=lines[0];
+    fs.writeFile('testingindex.html', lines[0], err => {
+      if (err) {
+        console.error('Error writing to index.html:', err);
+      } else {
+        console.log('testingindex.html file has been created.');
+      }
+    });
   }
 );
-console.log(text);
 console.log(d);
 //console.log(readFileLines("data.txt"));
