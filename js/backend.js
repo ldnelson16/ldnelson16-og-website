@@ -1,43 +1,47 @@
 import readline from "readline";
-//import fs from "fs";
+import fs from "fs";
 //import FileReader from "FileReader";
-  fs.readFile(input, 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
 
-    // Split the lines by newline character
-    const lines = data.split('\n');
+function readFileLines(filename) {
+  return new Promise((resolve, reject) => {
+    const lines = [];
 
-    // Create an HTML table string
-    let tableHtml = '<table>\n';
-
-    // Loop through each line and add it as a table row with a cell
-    lines.forEach((line) => {
-      // Remove leading/trailing white spaces from the line
-      const trimmedLine = line.trim();
-
-      // Skip empty lines
-      if (trimmedLine === '') return;
-
-      // Add the line as a table row with a cell
-      tableHtml += `<tr><td>${trimmedLine}</td></tr>\n`;
+    const rl = readline.createInterface({
+      input: fs.createReadStream(filename),
+      crlfDelay: Infinity
     });
 
-    tableHtml += '</table>';
-    console.log(tableHtml);
+    rl.on('line', line => {
+      lines.push(line);
+    });
 
-    // Write the generated HTML into an output file
-    /*fs.writeFile('output.html', tableHtml, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
+    rl.on('close', () => {
+      resolve(lines);
+    });
 
-      console.log('Output file generated successfully!');
-    });*/
+    rl.on('error', error => {
+      reject(error);
+    });
   });
+}
 
+// Usage example:
+function readFileLine(a) {
+  a.then(lines => {
+    console.log(lines); // Array containing each line of the file
+  })
+  .catch(error => {
+    console.error(error); // Error reading the file
+  });
+}
 
-handleFiles("data.txt");
+let d;
+d=readFileLines("data.txt").then(
+  (lines) => {
+    console.log(lines[0]);
+    let dates=lines[0];
+  }
+);
+console.log(text);
+console.log(d);
+//console.log(readFileLines("data.txt"));
