@@ -69,17 +69,21 @@ function addTable($,tableid){
 function addTableElementAsPlayer($,playerstring){
   const playerdata=playerstring.split("\t");
   const on3 = playerdata[1].replaceAll("[","").replaceAll("]","").replaceAll(" ","").replaceAll("'","").split(",");
-  console.log(on3+typeof on3+on3[0]);
+  let team;
+  console.log(playerdata[8]);
+  if(playerdata[8]=="True"){team = playerdata[9];}
+  else {team = "";}
+  console.log(team);
   $("#tbody").append(`<tr>
   <td>`+playerdata[0]+`</td>
-  <td>`+playerdata[1]+`</td>
+  <td>`+on3[0]+`</td>
   <td>`+playerdata[2]+`</td>
   <td>`+playerdata[3]+`</td>
   <td>`+playerdata[4]+`</td>
   <td>`+playerdata[5]+`</td>
   <td>`+playerdata[6]+`</td>
   <td>`+playerdata[7]+`</td>
-  <td>`+playerdata[8]+`</td>
+  <td>`+team+`</td>
   </tr>`);
 
   //Zina Umeozulu   ['91', '91', '91', '91', '91', '90']    ['90', '90', '90', '90', '90', '90']    ['86', '86', '86', '86', '86', '86']    ['5.8', '5.8', '5.0', '5.8', '5.8', '5.8']      EDGE    Allen   TX      False   False
