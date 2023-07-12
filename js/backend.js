@@ -68,18 +68,21 @@ function addTable($,tableid){
 }
 function addTableElementAsPlayer($,playerstring){
   const playerdata=playerstring.split("\t");
-  const on3 = playerdata[1].replaceAll("[","").replaceAll("]","").replaceAll(" ","").replaceAll("'","").split(",");
+  const ron3 = playerdata[1].replaceAll("[","").replaceAll("]","").replaceAll(" ","").replaceAll("'","").split(",");
+  const r247 = playerdata[1].replaceAll("[","").replaceAll("]","").replaceAll(" ","").replaceAll("'","").split(",");
+  const respn = playerdata[1].replaceAll("[","").replaceAll("]","").replaceAll(" ","").replaceAll("'","").split(",");
+  const rrivals = playerdata[1].replaceAll("[","").replaceAll("]","").replaceAll(" ","").replaceAll("'","").split(",");
   let team;
   console.log(playerdata[8]);
   if(playerdata[8]=="True"){team = playerdata[9];}
-  else {team = "";}
+  else {team = "Uncommitted";}
   console.log(team);
   $("#tbody").append(`<tr>
   <td>`+playerdata[0]+`</td>
-  <td>`+on3[0]+`</td>
-  <td>`+playerdata[2]+`</td>
-  <td>`+playerdata[3]+`</td>
-  <td>`+playerdata[4]+`</td>
+  <td>`+ron3[0]+`</td>
+  <td>`+r247[0]+`</td>
+  <td>`+respn[0]+`</td>
+  <td>`+rrivals[0]+`</td>
   <td>`+playerdata[5]+`</td>
   <td>`+playerdata[6]+`</td>
   <td>`+playerdata[7]+`</td>
