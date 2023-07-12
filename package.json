@@ -2,6 +2,7 @@
   "name": "ldnelson16githubio-json",
   "version": "1.0.0",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
     "FileReader": "^0.10.2",
     "fs": "^0.0.1-security",
     "readline": "^1.3.0"

@@ -72,11 +72,12 @@ body {
 } 
 
 .body {
+  background-color: #0d3452;
   padding: 10px;
   height: 500px; /* Should be removed. Only for demonstration */
 }
 
-/* Style the left column */
+/* Style the body column */
 .body {
   grid-area: body;
 }
