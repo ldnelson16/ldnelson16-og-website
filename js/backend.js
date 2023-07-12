@@ -1,6 +1,7 @@
 import readline from "readline";
 import fs from "fs";
 import cheerio from "cheerio";
+import { Player } from "./playerclass.js";
 //import FileReader from "FileReader";
 
 function readFileLines(filename) {
@@ -60,6 +61,18 @@ function addDatesDropdown($,dates,labeltext,dropdownid,dropdownlabelid) {
   }
   return $;
 }
+function addTable($,tableid){
+  $("#body").append(`<table id="`+tableid+`"></table>`)
+  $("#"+tableid).append(`<thead><tr><th>Name</th><th>ON3</th><th>247</th><th>ESPN</th><th>Rivals</th><th>Position</th><th>City</th><th>State</th><th>Team</th></tr></thead>`);
+  $("#"+tableid).append(`<tbody id="tbody"></tbody>`);
+}
+function addTableElementAsPlayer($,playerstring){
+  const playerdata=playerstring.split("\t");
+  console.log(playerstring);
+  $("#tbody").append(`<tr><td>`+playerdata[0]+`</td></tr>`);
+
+  //Zina Umeozulu   ['91', '91', '91', '91', '91', '90']    ['90', '90', '90', '90', '90', '90']    ['86', '86', '86', '86', '86', '86']    ['5.8', '5.8', '5.0', '5.8', '5.8', '5.8']      EDGE    Allen   TX      False   False
+}
 
 
 
@@ -70,10 +83,12 @@ $=fillHeader($,"h2","H2");
 let d=await readFileLines("data.txt").then(
   (lines) => {
     let dates=lines[0].split(" ");
-    console.log(dates);
+    lines.shift();
     $=addDatesDropdown($,dates,"Label","dropdown","dropdownlabel");
-    console.log($.html());
+    addTable($,"tableid");
+    for(let line in lines){
+      addTableElementAsPlayer($,lines[line]);
+    }
   }
 );
-console.log($.html());
 writeFile("newtestingrecruiting.html",$);
