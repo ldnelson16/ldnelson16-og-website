@@ -56,8 +56,9 @@ function addDatesDropdown($,dates,labeltext,dropdownid,dropdownlabelid) {
   console.log(appendabledropdown);
   $("#body").append($(appendabledropdown));
   for(let date in dates){
-    $("#"+dropdownid).append(`<option value="`+date+`">`+date+`</option>`);
+    $("#"+dropdownid).append(`<option value="`+dates[date]+`">`+dates[date]+`</option>`);
   }
+  return $;
 }
 
 
@@ -66,11 +67,13 @@ function addDatesDropdown($,dates,labeltext,dropdownid,dropdownlabelid) {
 //IMPLEMENTATION OF FILE
 let $ = writeHTMLSingleColumnFrameworkFile("singlecolumnframework.html");
 $=fillHeader($,"h2","H2");
-let d=readFileLines("data.txt").then(
+let d=await readFileLines("data.txt").then(
   (lines) => {
     let dates=lines[0].split(" ");
     console.log(dates);
-    addDatesDropdown($,dates,"Label","dropdown","dropdownlabel");
+    $=addDatesDropdown($,dates,"Label","dropdown","dropdownlabel");
+    console.log($.html());
   }
 );
+console.log($.html());
 writeFile("newtestingrecruiting.html",$);
