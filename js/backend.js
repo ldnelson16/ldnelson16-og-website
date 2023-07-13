@@ -53,20 +53,32 @@ function writeFile(filename,$){
   });
 }
 function addDatesDropdown($,dates,labeltext,dropdownid,dropdownlabelid) {
-  const appendabledropdown = `<label for="`+dropdownid+`" id="`+dropdownlabelid+`">`+labeltext+`</label><select id = "`+dropdownid+`"></select>`;
+  const appendabledropdown = `<label for="`+dropdownid+`" id="`+dropdownlabelid+`">`+labeltext+`</label><select id = "`+dropdownid+`" onchange="changeTableColumns()"></select>`;
   console.log(appendabledropdown);
   $("#body").append($(appendabledropdown));
-  for(let date in dates){
-    $("#"+dropdownid).append(`<option value="`+dates[date]+`">`+dates[date]+`</option>`);
+  for(let i=0;i<dates.length;++i){
+    if (i!=dates.length-1){
+      $("#"+dropdownid).append(`<option value="`+dates[i]+`">`+dates[i]+`</option>`);
+    }
+    else {
+      $("#"+dropdownid).append(`<option selected="selected" value="`+dates[i]+`">`+dates[i]+`</option>`);
+    }
   }
   return $;
 }
-function addTable($,dateid){
-  $("#body").append(`<table id="`+dateid+`"></table>`)
-  $("#"+dateid).append(`<thead><tr><th>Name</th><th>ON3</th><th>247</th><th>ESPN</th><th>Rivals</th><th>Position</th><th>City</th><th>State</th><th>Team</th></tr></thead>`);
-  $("#"+dateid).append(`<tbody id="`+dateid+`tbody"></tbody>`);
+function addTable($,tableid,dates){
+  $("#body").append(`<table id="`+tableid+`"></table>`)
+  $("#"+tableid).append(`<thead><tr><th>Name</th>`);
+  let arr = ["ON3","247","ESPN","Rivals"];
+  for (let i=0;i<dates.length;++i){
+    for (let j=0;j<arr.length;++j){
+      $("#"+tableid).append(`<th>`+arr[j]+`</th>`)
+    }
+  }
+  $("#"+tableid).append(`<th>Position</th><th>City</th><th>State</th><th>Team</th></tr></thead>`);
+  $("#"+tableid).append(`<tbody id="`+tableid+`tbody"></tbody>`);
 }
-function addTableElementAsPlayer($,playerstring,dateindex,tbodyid){
+function addTableElementAsPlayer($,playerstring,dates,tbodyid){
   const playerdata=playerstring.split("\t");
   const ron3 = playerdata[1].replaceAll("[","").replaceAll("]","").replaceAll(" ","").replaceAll("'","").split(",");
   const r247 = playerdata[2].replaceAll("[","").replaceAll("]","").replaceAll(" ","").replaceAll("'","").split(",");
@@ -75,7 +87,11 @@ function addTableElementAsPlayer($,playerstring,dateindex,tbodyid){
   let team;
   if(playerdata[8]=="True"){team = playerdata[9];}
   else {team = "Uncommitted";}
-  $("#"+tbodyid).append(`<tr><td>`+playerdata[0]+`</td><td>`+ron3[dateindex]+`</td><td>`+r247[dateindex]+`</td><td>`+respn[dateindex]+`</td><td>`+rrivals[dateindex]+`</td><td>`+playerdata[5]+`</td><td>`+playerdata[6]+`</td><td>`+playerdata[7]+`</td><td>`+team+`</td></tr>`);
+  $("#"+tbodyid).append(`<tr><td>`+playerdata[0]+`</td>`);
+  for (let i=0;i<dates.length;++i){
+    $("#"+tbodyid).append(`<td>`+ron3[i]+`</td>`+`<td>`+r247[i]+`</td>`+`<td>`+respn[i]+`</td>`+`<td>`+rrivals[i]+`</td>`)
+  }
+  $("#"+tbodyid).append(`<td>`+playerdata[5]+`</td><td>`+playerdata[6]+`</td><td>`+playerdata[7]+`</td><td>`+team+`</td></tr>`);
 }
 
 
@@ -89,11 +105,9 @@ let d=await readFileLines("data.txt").then(
     let dates=lines[0].split(" ");
     lines.shift();
     $=addDatesDropdown($,dates,"Label","dropdown","dropdownlabel");
-    for(let date in dates){
-      addTable($,dates[date]);
-      for(let line in lines){
-        addTableElementAsPlayer($,lines[line],dates[date],dates[date]+"tbody");
-      }
+    addTable($,"tableid",dates);
+    for(let line in lines){
+      addTableElementAsPlayer($,lines[line],dates,"tableid"+"tbody");
     }
   }
 );
