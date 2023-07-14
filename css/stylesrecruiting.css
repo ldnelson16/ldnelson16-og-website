@@ -101,17 +101,20 @@ body {
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   padding: 10px;
+  background-color:#153b75;
 }
 #tableid thead {
-  background-color:#202024;
-  border-bottom: 5px solid white;
+  background-color:#17458a;
+  border-bottom: 5px solid #0c1f3d;
 }
 #tableid th, #tableid td {
   padding: 3px 10px 3px 10px;
 }
 #tableid td:first-child {
-  border-right: 1px solid lightgrey;
-  text-align: right;
+  border-right: 1px solid #0c1f3d;
+}
+#tableid tr:nth-child(even){
+  background-color:#17458a;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
