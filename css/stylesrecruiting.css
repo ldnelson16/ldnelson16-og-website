@@ -100,9 +100,18 @@ body {
   font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  padding: 10px;
 }
 #tableid thead {
   background-color:#202024;
+  border-bottom: 5px solid white;
+}
+#tableid th, #tableid td {
+  padding: 3px 10px 3px 10px;
+}
+#tableid td:first-child {
+  border-right: 1px solid lightgrey;
+  text-align: right;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
