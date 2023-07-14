@@ -73,7 +73,7 @@ function addTable($,tableid,dates){
   let arr = ["ON3","247","ESPN","Rivals"];
   for (let i=0;i<dates.length;++i){
     for (let j=0;j<arr.length;++j){
-      appendstr+=`<th class="data">`+arr[j]+`</th>`;
+      appendstr+=`<th class="data" onclick="sortTable(`+(i*4+j+1)+`)">`+arr[j]+`</th>`;
     }
   }
   appendstr+=`<th>Position</th><th>City</th><th>State</th><th>Team</th></tr></thead>`+`<tbody id="`+tableid+`tbody"></tbody>`;
