@@ -68,15 +68,17 @@ function addDatesDropdown($,dates,labeltext,dropdownid,dropdownlabelid) {
 }
 function addTable($,tableid,dates){
   $("#body").append(`<table id="`+tableid+`"></table>`)
-  $("#"+tableid).append(`<thead><tr><th>Name</th>`);
+  let appendstr = `<thead><tr><th>Name</th>`;
+  //$("#"+tableid).append(`<thead><tr><th>Name</th>`);
   let arr = ["ON3","247","ESPN","Rivals"];
   for (let i=0;i<dates.length;++i){
     for (let j=0;j<arr.length;++j){
-      $("#"+tableid).append(`<th>`+arr[j]+`</th>`)
+      appendstr+=`<th class="data">`+arr[j]+`</th>`;
     }
   }
-  $("#"+tableid).append(`<th>Position</th><th>City</th><th>State</th><th>Team</th></tr></thead>`);
-  $("#"+tableid).append(`<tbody id="`+tableid+`tbody"></tbody>`);
+  appendstr+=`<th>Position</th><th>City</th><th>State</th><th>Team</th></tr></thead>`+`<tbody id="`+tableid+`tbody"></tbody>`;
+  $("#"+tableid).append(appendstr);
+  //$("#"+tableid).append(`<tbody id="`+tableid+`tbody"></tbody>`);
 }
 function addTableElementAsPlayer($,playerstring,dates,tbodyid){
   const playerdata=playerstring.split("\t");
@@ -87,11 +89,14 @@ function addTableElementAsPlayer($,playerstring,dates,tbodyid){
   let team;
   if(playerdata[8]=="True"){team = playerdata[9];}
   else {team = "Uncommitted";}
-  $("#"+tbodyid).append(`<tr><td>`+playerdata[0]+`</td>`);
+  let appendstr = `<tr><td>`+playerdata[0]+`</td>`;
+  //$("#"+tbodyid).append(`<tr><td>`+playerdata[0]+`</td>`);
   for (let i=0;i<dates.length;++i){
-    $("#"+tbodyid).append(`<td>`+ron3[i]+`</td>`+`<td>`+r247[i]+`</td>`+`<td>`+respn[i]+`</td>`+`<td>`+rrivals[i]+`</td>`)
+    appendstr+=`<td class="data">`+ron3[i]+`</td>`+`<td class="data">`+r247[i]+`</td>`+`<td class="data">`+respn[i]+`</td>`+`<td class="data">`+rrivals[i]+`</td>`;
+    //$("#"+tbodyid).append(`<td>`+ron3[i]+`</td>`+`<td>`+r247[i]+`</td>`+`<td>`+respn[i]+`</td>`+`<td>`+rrivals[i]+`</td>`)
   }
-  $("#"+tbodyid).append(`<td>`+playerdata[5]+`</td><td>`+playerdata[6]+`</td><td>`+playerdata[7]+`</td><td>`+team+`</td></tr>`);
+  appendstr+=`<td>`+playerdata[5]+`</td><td>`+playerdata[6]+`</td><td>`+playerdata[7]+`</td><td>`+team+`</td></tr>`;
+  $("#"+tbodyid).append(appendstr);
 }
 
 

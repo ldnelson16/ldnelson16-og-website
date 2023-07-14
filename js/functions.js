@@ -20,17 +20,21 @@ function changeTableColumns(){
   console.log("Changing Table Columns");
   const dropdown = document.getElementById('dropdown');
   const table = document.getElementById('tableid');
-  const selectedValue = dropdown.value;
   const dropdownindex = dropdown.selectedIndex;
-  console.log(selectedValue,dropdownindex);
   const length = dropdown.length;
-  const indexes = [dropdownindex+1,dropdownindex+1+length,dropdownindex+1+2*length,dropdownindex+1+3*length];
+  console.log(dropdownindex);
+  const indexes = [0,4*dropdownindex+1,4*dropdownindex+2,4*dropdownindex+3,4*dropdownindex+4,length*4+1,length*4+2,length*4+3,length*4+4];
   console.log(indexes);
-
-  // Hide all cells in the column
+  //clear visibility of all cells in the table
+  const allCells = table.querySelectorAll('td , th');
+  allCells.forEach(cell => {
+    cell.style.display = 'none';
+  });
+  //reveal all pertinent cells in the column
   for (let i = 0; i < table.rows.length; i++) {
     for (let j=0;j<indexes.length;++j){
-      table.rows[i].cells[indexes[j]].style.display = 'none';
+      //console.log(indexes[j]);
+      table.rows[i].cells[indexes[j]].style.display = '';
     }
   }
 }

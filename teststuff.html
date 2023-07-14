@@ -1,0 +1,38 @@
+<select id="dropdown" onchange="updateTable()">
+  <option value="column1">Column 1</option>
+  <option value="column2">Column 2</option>
+  <option value="column3">Column 3</option>
+</select>
+
+<table id="table">
+  <tr>
+    <th>Column 1</th>
+    <th>Column 2</th>
+    <th>Column 3</th>
+  </tr>
+  <tr>
+    <td>Row 1, Column 1</td>
+    <td>Row 1, Column 2</td>
+    <td>Row 1, Column 3</td>
+  </tr>
+  <tr>
+    <td>Row 2, Column 1</td>
+    <td>Row 2, Column 2</td>
+    <td>Row 2, Column 3</td>
+  </tr>
+  <!-- Additional rows... -->
+</table>
+
+<script>
+  function updateTable() {
+    const dropdown = document.getElementById('dropdown');
+    const table = document.getElementById('table');
+    const selectedIndex = dropdown.selectedIndex;
+    const columnIndex = selectedIndex - 1; // Subtract 1 to account for the header row
+
+    // Hide all cells in the column
+    for (let i = 0; i < table.rows.length; i++) {
+      table.rows[i].cells[1].style.display = 'none';
+    }
+  }
+</script>
